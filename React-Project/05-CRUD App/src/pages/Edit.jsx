@@ -25,8 +25,12 @@ const Edit = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:8000/users/${id}`, input);
-    navigate("/");
+    try{
+      await axios.put(`http://localhost:8000/users/${id}`, input);
+      navigate("/");
+    } catch (error){
+      console.log(error)
+    }
   }
 
   return (
